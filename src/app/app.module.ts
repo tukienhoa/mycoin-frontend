@@ -9,6 +9,7 @@ import { TransactionsTableComponent } from './components/transactions-table/tran
 import { SettingsComponent } from './pages/settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { CreateTransactionComponent } from './pages/create-transaction/create-transaction.component';
+import { PendingTransactionsComponent } from './pages/pending-transactions/pending-transactions.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CreateTransactionComponent } from './pages/create-transaction/create-tr
     BlockViewComponent,
     TransactionsTableComponent,
     SettingsComponent,
-    CreateTransactionComponent
+    CreateTransactionComponent,
+    PendingTransactionsComponent
   ],
   imports: [
     BrowserModule,
