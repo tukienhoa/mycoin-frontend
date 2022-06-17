@@ -4,11 +4,9 @@
   </a>
 
   <div>
-    <button class="btn btn-outline-light" routerLink="/settings">Settings</button>
+    <button class="btn btn-outline-light" [routerLink]="['/wallet', walletAddress]">Access My Wallet</button>
     &nbsp;
-    <button class="btn btn-outline-light" routerLink="/new/transaction">Create transaction</button>
-    &nbsp;
-    <button class="btn btn-outline-light" routerLink="/new/transaction/pending">Pending transactions</button>
+    <button class="btn btn-outline-light" routerLink="/new/transaction">Create Transaction</button>
   </div>
 </nav>
 <router-outlet></router-outlet>
