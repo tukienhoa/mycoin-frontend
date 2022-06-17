@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BlockchainService } from 'src/app/services/blockchain.service';
 
 @Component({
   selector: 'app-transactions-table',
@@ -10,11 +11,15 @@ export class TransactionsTableComponent implements OnInit {
   @Input()
   public transactions: any[];
 
-  constructor() {
+  constructor(private blockchainService: BlockchainService) {
     this.transactions = [];
    }
 
   ngOnInit(): void {
+  }
+
+  isCurrentUserAddress(address: any) {
+    return this.blockchainService.isCurrentUserAddress(address);
   }
 
 }

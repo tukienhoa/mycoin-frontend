@@ -16,9 +16,12 @@ export class BlockchainService {
 
   constructor() { 
     this.blockchainInstance.difficulty = 1;
-    this.blockchainInstance.minePendingTransactions('my-wallet-address');
-
+    this.blockchainInstance.minePendingTransactions('anonymous-user-address');
     this.generateWalletKeys();
+  }
+
+  isCurrentUserAddress(address: any) {
+    return address === this.walletKeys[0].publicKey;
   }
 
   getBlocks() {
@@ -37,7 +40,7 @@ export class BlockchainService {
     this.blockchainInstance.minePendingTransactions(this.walletKeys[0].publicKey);
   }
 
-  private generateWalletKeys() {
+  generateWalletKeys() {
     const ec = new EC.ec('secp256k1');
     const key = ec.genKeyPair();
 

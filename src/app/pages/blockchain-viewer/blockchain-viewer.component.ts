@@ -7,7 +7,7 @@ import { BlockchainService } from 'src/app/services/blockchain.service';
   styleUrls: ['./blockchain-viewer.component.scss']
 })
 export class BlockchainViewerComponent implements OnInit {
-  public blocks = [];
+  public blocks: any = [];
   public selectedBlock: any;
 
   constructor(private blockchainService: BlockchainService) { 
@@ -21,5 +21,9 @@ export class BlockchainViewerComponent implements OnInit {
   showTransactions(block: any) {
     this.selectedBlock = block;
     return false;
+  }
+
+  getBlockNumber(block: any) {
+    return this.blocks.indexOf(block) + 1;
   }
 }
