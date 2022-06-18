@@ -8,6 +8,7 @@ class Transaction {
         this.toAddress = toAddress;
         this.amount = amount;
         this.timestamp = Date.now();
+        this.hash = this.calculateHash();
     }
 
     calculateHash() {
@@ -161,7 +162,19 @@ class Blockchain {
             }
         }
 
-        return transactions;
+        return transactions.reverse();
+    }
+
+    getBlockNumberOfTransaction(transaction) {
+        for (let i = 0; i < this.chain.length; i++) {
+            const block = this.chain[i];
+
+            for (let j = 0; j < block.transactions.length; j++) {
+                if (block.transactions[j] === transaction) {
+                    return i + 1;
+                }
+            }
+        }
     }
 
     getAllTransactionsForWallet(address) {

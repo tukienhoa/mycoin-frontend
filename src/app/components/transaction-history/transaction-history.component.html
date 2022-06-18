@@ -1,0 +1,33 @@
+<p *ngIf="transactions.length === 0">This block has no transaction.</p>
+
+<table class="table table-hover table-striped" *ngIf="transactions.length > 0">
+  <thead>
+    <tr style="background-color:rgb(248, 250, 253)">
+      <th scope="col">Tnx Hash</th>
+      <th scope="col">Block</th>
+      <th scope="col">Date Time</th>
+      <th scope="col">From</th>
+      <th scope="col"></th>
+      <th scope="col">To</th>
+      <th scope="col">Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tx of transactions; index as index">
+      <td class="text-truncate" style="max-width: 150px;">{{tx.hash}}</td>
+      <td>{{getBlockNumberOfTransaction(tx)}}</td>
+      <td>{{tx.timestamp |date:'yyyy-MM-dd HH:mm:ss'}}</td>
+      <td class="text-truncate" style="max-width: 100px;">
+        <a [routerLink]="['/wallet', tx.fromAddress]" *ngIf="tx.fromAddress !== null">{{tx.fromAddress}}</a>
+        <span *ngIf="tx.fromAddress === null">System</span>
+      </td>
+      <td>
+        <i class="fa-solid fa-circle-arrow-right"></i>
+      </td>
+      <td class="text-truncate" style="max-width: 100px;">
+          <a [routerLink]="['/wallet', tx.toAddress]">{{tx.toAddress}}</a>
+      </td>
+      <td>{{tx.amount}}</td>
+    </tr>
+  </tbody>
+</table>

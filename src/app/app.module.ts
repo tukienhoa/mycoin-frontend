@@ -14,6 +14,8 @@ import { WalletComponent } from './pages/wallet/wallet.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { TransactionViewComponent } from './pages/transaction-view/transaction-view.component';
+import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ToastrModule } from 'ngx-toastr';
     TransactionsTableComponent,
     CreateTransactionComponent,
     PendingTransactionsComponent,
-    WalletComponent
+    WalletComponent,
+    TransactionViewComponent,
+    TransactionHistoryComponent
   ],
   imports: [
     BrowserModule,
